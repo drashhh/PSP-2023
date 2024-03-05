@@ -65,6 +65,7 @@ int main(){
         cout << "Pocni so vnesuvanje na " << i+1 << " lanec." <<endl;
         cout << "Ime na lanec: "; cin >> ImeLanec;
         cout << "Broj na apteki: "; cin >> brojApteki;
+        
         for(int j =0; j < brojApteki; j++){
             cout << "Pocni so vnesuvanje na " << j+1 << " apteka." <<endl;
             cout << "Lokacija: "; cin >> lokacija;
