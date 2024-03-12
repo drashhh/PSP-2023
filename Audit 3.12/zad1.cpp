@@ -45,7 +45,7 @@ Element Red::izvadi(){
         niza[i] = niza[i+1];
     }
 
-    nazad++;
+    nazad--;
     return pom;
 }
 Element Red::peek(){
@@ -63,6 +63,7 @@ void opsluzuvanje(Red &licna, Red &pasos, Red &vozacka){
         cout<<"Za licna karta e opsluzen "<<e.podatok.ime<<endl;
         if(e.podatok.p == 1){
             pasos.stavi(e);
+            cout<<e.podatok.p<<endl;
         }else if(e.podatok.vd == 1){
             vozacka.stavi(e);
         }
