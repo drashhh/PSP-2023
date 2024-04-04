@@ -78,8 +78,35 @@ struct Lista{
         }
         cout<<dvizi->info<<endl;
     }
+    void brisiJazol(Jazol* brisi){
+        if(brisi == head){
+            brisiPrv();
+            return;
+        }
+        //Jazol* pom = brisi;
+        Jazol *dvizi = head;
+        while(dvizi->next != brisi)
+            dvizi = dvizi->next;
+        dvizi->next = brisi->next;
+        // brisi = brisi->next;
+        //delete pom;
+    }
 };
-
+void podeli(Lista &l1, Lista &l2){
+    Jazol* dvizi1 = l1.head;
+    l2.dodadiPrv(dvizi1->info);
+    Jazol *pom=dvizi1;
+    
+    dvizi1 = dvizi1->next;
+//l1.brisiJazol(pom);
+    while(dvizi1 != l1.head && dvizi1->info != 107 && dvizi1 != l1.tail){
+        cout<<"Ulezeno e do tuka dvizi 1 podatok"<<dvizi1->info<<endl;
+        l2.dodadiPosleden(dvizi1->info);
+        l1.brisiJazol(dvizi1);
+        dvizi1 = dvizi1->next;
+    }
+    //l1.brisiPrv();
+}
 int main(){
     Lista lista1, lista2;
     lista1.init(); lista2.init();
@@ -89,5 +116,10 @@ int main(){
         lista1.dodadiPosleden(niza[i]);
     }
     lista1.pecati();
+    podeli(lista1, lista2);
+    cout<<"Lista 1 > ";
+    lista1.pecati();
+    cout<<"Lista 2 > ";
+    lista2.pecati();
     return 0;
 }
